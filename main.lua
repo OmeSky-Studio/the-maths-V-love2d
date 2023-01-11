@@ -14,8 +14,8 @@ love.graphics.setFont(font)
 
 function love.load()
   --nouvelle souris
-  local cursor = love.mouse.newCursor("res/textures/cursor.png",-0.5,-0.5)
-  love.mouse.setCursor(cursor)
+  --local cursor = love.mouse.newCursor("res/textures/cursor.png",-0.5,-0.5)
+  --love.mouse.setCursor(cursor)
   
     loadGameMode()
     initTexture()

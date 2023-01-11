@@ -1,0 +1,6 @@
+{
+    "enouncer": "Donner la solution de l'équation 2x+2=0",
+    "reponse": [-1,0,4],
+    "reponsejuste": "-1",
+    "solution": "2x+2=0 || 2x+2-2=-2 || 2x=-2 || 2x/2=-2/2 || x=-1"
+}
