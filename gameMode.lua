@@ -1,5 +1,5 @@
 local gameMode = "MainMenu"
-
+local exoNumber = 0
 local gameModes = {}
 
 function loadGameMode()
@@ -26,4 +26,13 @@ end
 
 function setGameMode(newGameMode)
     gameMode = newGameMode
+end
+
+--EXO NUMBER
+function getExoNumber()
+    return exoNumber
+end
+
+function setExoNumber(newExoNumber)
+    exoNumber = newExoNumber
 end

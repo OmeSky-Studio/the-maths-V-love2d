@@ -5,5 +5,5 @@ function love.conf(t)
     t.window.title = "The Maths" 
     t.window.fullscreen = true
     t.window.fullscreentype = "desktop"
-    t.console = false
+    t.console = true
 end

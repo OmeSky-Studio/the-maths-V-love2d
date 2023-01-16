@@ -25,21 +25,14 @@ function loadMainMenu()
 end
 
 function upadteMainMenu()
-    if getMouseEnter(buttonJouer) == true then
-        if love.mouse.isDown(1) then
-          
-          setGameMode(getAllGameMode().classeMenu)        
-        end
+    if getMouseEnterClick(buttonJouer) == true then
+        setGameMode(getAllGameMode().classeMenu)        
     end
-    if getMouseEnter(buttonSettings) == true then
-        if love.mouse.isDown(1) then
-            setGameMode(getAllGameMode().optionMenu)        
-        end
+    if getMouseEnterClick(buttonSettings) == true then
+        setGameMode(getAllGameMode().optionMenu)        
     end
-    if getMouseEnter(buttonExit) == true then
-        if love.mouse.isDown(1) then
-            setGameMode(getAllGameMode().exitGame)        
-        end
+    if getMouseEnterClick(buttonExit) == true then
+        setGameMode(getAllGameMode().exitGame)        
     end
 end
 

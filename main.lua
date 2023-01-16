@@ -24,6 +24,7 @@ end
 
 function love.update(dt)
     upadteGame()
+    --print(getGameMode())
 end
 
 function love.draw()

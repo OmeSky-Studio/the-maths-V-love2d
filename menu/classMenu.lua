@@ -6,21 +6,28 @@ require("/menu/niveauMenu")
 
 
 local button3eme, buttonCAP, button2nd, button1er, buttonTerm,buttonReturn
-local titre = love.graphics.newImage("res/textures/themaths.png")
-function loadClassMenu()
-    local midelScreenX = love.graphics.getWidth() / 2
-    local midelScreenY = love.graphics.getHeight() / 2
-    local scale = 0.6
-    local textureButton = getTexture("greenButton")
-    local textureButtonOver = getTexture("redButton")
 
+--TEXTURE SCALE
+local scale = 0.6
+--VAR TEXTURE
+
+local titre = love.graphics.newImage("res/textures/themaths.png") --IMG TITRE
+--VAR MIDEL SCREEN
+local midelScreenX = love.graphics.getWidth() / 2
+local midelScreenY = love.graphics.getHeight() / 2
+
+
+function loadClassMenu()
+    local textureButton = getTexture("greenButton") --IMG BUTTON
+    local textureButtonOver = getTexture("redButton") --IMG BUTTON OVER 
+    --VAR MIDEL BUTTON
     local midelButtonX = textureButton:getWidth() / 2
     local midelButtonY = textureButton:getHeight() / 2
 
-
-    local posX = love.graphics.getWidth() / 4.1
-    local posY = midelScreenY-midelButtonY*scale +120
+    local posX = midelScreenX - ((textureButton:getWidth()*scale +10)*2) - midelButtonX*scale
     print(posX)
+    local posY = midelScreenY-midelButtonY*scale +120
+
     button3eme = createButton("3éme",0,posX,posY,textureButton,textureButtonOver,scale)
 
     posX = posX + textureButton:getWidth()*scale +10
@@ -40,41 +47,23 @@ function loadClassMenu()
 end
 
 function updateClassMenu()
-    if getMouseEnter(button3eme) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().classe3eme)        
-        end
+    if getMouseEnterClick(button3eme) == true then
+        setGameMode(getAllGameMode().classe3eme)        
     end
-    if getMouseEnter(buttonCAP) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().classeCap)        
-        end
+    if getMouseEnterClick(buttonCAP) == true then
+        setGameMode(getAllGameMode().classeCap)        
     end
-    if getMouseEnter(button2nd) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().classe2nd)        
-        end
+    if getMouseEnterClick(button2nd) == true then
+        setGameMode(getAllGameMode().classe2nd)        
     end
-    if getMouseEnter(button1er) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().classe1er)        
-        end
+    if getMouseEnterClick(button1er) == true then
+        setGameMode(getAllGameMode().classe1er)        
     end
-    if getMouseEnter(buttonTerm) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().classeTerm)        
-        end
+    if getMouseEnterClick(buttonTerm) == true then
+        setGameMode(getAllGameMode().classeTerm)        
     end
-    if getMouseEnter(buttonReturn) == true then
-      if love.mouse.isDown(1) then
-        
-            setGameMode(getAllGameMode().mainMenu)        
-        end
+    if getMouseEnterClick(buttonReturn) == true then
+        setGameMode(getAllGameMode().mainMenu)
     end
 end
 

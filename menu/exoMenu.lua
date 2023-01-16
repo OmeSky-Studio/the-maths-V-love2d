@@ -1,28 +1,38 @@
 require("/textureManager")
 require("/components/buttonManager")
+require("/gameMode")
 
-local probleme = {}
-probleme.posX = 225
-probleme.posY = 225
-probleme.enoncer = "Donner la solution de l'équation 2x+2=0"
-probleme.bouton = {}
+local scale = 0.6
+local buttonReturn
 
-proposition = {}
-proposition[1] = "X = -1"
-proposition[2] = "X = 0"
-proposition[3] = "X = 4"
+local midelScreenX = love.graphics.getWidth()/2
+local midelScreenY = love.graphics.getHeight()/2
 
-function laodExoMenu()
-  for i = 1,3 do        --createButton(Name,id,posX,posY,texture,textureOver,scale)
-    probleme.bouton[i] = createButton(proposition[i],id,posX,posY,texture,textureOver,scale)
-  end
+
+function loadExoMenu()
+  --button return menu
+  buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),scale)
 end
 
 function updateExoMenu()
-  
+  if getMouseEnterClick(buttonReturn) == true then
+    setExoNumber(0)       
+  end
 end
 
 function drawExoMenu()
-  --draw problématique
-  love.graphics.draw()
+  --[[
+      DRAW PROBLEME
+  ]]
+  local font = love.graphics.getFont()
+  local msg = "Donner la solution de l'équation x-3=10"
+  local posX = midelScreenX - (font:getWidth(msg)/2)
+  local posY = 100
+
+  love.graphics.setColor(128, 128, 128, 128)
+  love.graphics.rectangle("fill", posX, posY, font:getWidth(msg), 100)
+  love.graphics.setColor(0, 0, 0, 255)
+  love.graphics.print(msg, posX, posY + (posY/2) - (font:getHeight()/2))
+  love.graphics.setColor(255, 255, 255, 255)
+  drawButton(buttonReturn)
 end

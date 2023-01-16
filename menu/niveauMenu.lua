@@ -17,20 +17,20 @@ function loadNiveauMenu()
   local midelButtonX = textureButton:getWidth() / 2
   local midelButtonY = textureButton:getHeight() / 2
   
-  local posX = love.graphics.getWidth() / 4.79+1
+  local posX = midelScreenX - ((textureButton:getWidth()*scale +10)*5) + 5
   local posY = midelScreenY-midelButtonY*scale - 50- midelButtonY
   
   local id
   
   for id = 1,40 do
     if id == 11 or id == 21 or id == 31 or id == 41 then
-      posX = love.graphics.getWidth() /  4.79+1
-      
+      posX = midelScreenX - ((textureButton:getWidth()*scale +10)*5) + 5
+
       posY = posY + midelButtonY +25
     end
     
     niveau[id] = createButton(id,0,posX,posY,textureButton,textureButtonOver,scale)
-   posX = posX + textureButton:getWidth()*scale +10
+    posX = posX + textureButton:getWidth()*scale +10
   end
   
    --button return menu
@@ -39,17 +39,13 @@ end
 
 function updateNiveauMenu()
     for id = 1,#niveau do
-      if getMouseEnter(niveau[id]) == true then
-        if love.mouse.isDown("1") then
-          setGameMode(getGameMode()..id)
-        end
+      if getMouseEnterClick(niveau[id]) == true then
+          setExoNumber(id)
       end
     end
     
-  if getMouseEnter(buttonReturn) == true then
-    if love.mouse.isDown(1) then
+  if getMouseEnterClick(buttonReturn) == true then
       setGameMode(getAllGameMode().classeMenu)        
-    end
   end
 end
 

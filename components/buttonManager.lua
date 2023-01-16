@@ -41,7 +41,7 @@ function drawButton(button)
 
     love.graphics.print(name,middelButtonX - (font:getWidth(name)/2),middelButtonY - (font:getHeight(name)/2))
 
-    if getDebugMode() == "debugButton" then
+    if getDebugMode() == true then
         love.graphics.setColor(1, 0, 0, 1)
         love.graphics.rectangle("line", posX, posY, button.sizeX* scale, button.sizeY* scale)
         love.graphics.setColor(0, 0, 1, 1)
@@ -66,4 +66,12 @@ function getMouseEnter(button)
         button.texture = button.initTexture
         return false
     end
+end
+
+function getMouseEnterClick(button)
+    
+    if getMouseEnter(button) and love.mouse.isDown(1) then
+        return true
+    end
+    return false
 end

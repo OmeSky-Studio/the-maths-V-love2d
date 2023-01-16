@@ -3,11 +3,12 @@ require("/menu/mainMenu")
 require("/menu/classMenu")
 require("/menu/niveauMenu")
 require("/menu/optionMenu")
-
-
-
+require("/menu/exoMenu")
 
 require("gameMode")
+
+local TimeSleep = 0.1
+
 
 
 function loadGame()
@@ -15,24 +16,27 @@ function loadGame()
     loadClassMenu()
     loadNiveauMenu()
     loadOptionMenu()
+    loadExoMenu()
 end
 
 function upadteGame()
+    --print(getExoNumber())
     if getGameMode() == getAllGameMode().mainMenu then
         upadteMainMenu()
-        love.timer.sleep(0.1)
     elseif getGameMode() == getAllGameMode().classeMenu then
         updateClassMenu()
-        love.timer.sleep(0.1)
     elseif getGameMode() == getAllGameMode().optionMenu then
         updateOptionMenu()
-        love.timer.sleep(0.1)
     elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
-        updateNiveauMenu()
-        love.timer.sleep(0.1)
+        if getExoNumber() == 0 then
+            updateNiveauMenu()
+        elseif getExoNumber() > 0 then
+            updateExoMenu()
+        end
     elseif getGameMode() == getAllGameMode().exitGame then
         os.exit()
     end
+    love.timer.sleep(TimeSleep)
 end
 
 function drawGame()
@@ -43,7 +47,11 @@ function drawGame()
      elseif getGameMode() == getAllGameMode().optionMenu then
       drawOptionMenu()    
     elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
-      drawNiveauMenu()
+        if getExoNumber() == 0 then
+            drawNiveauMenu()
+        elseif getExoNumber() > 0 then
+            drawExoMenu()
+        end
     end
-    
+    --love.timer.sleep(TimeSleep/2)
 end
