@@ -3,13 +3,12 @@ require("/debugMode")
 
 
 
-function createButton(Name,id,posX,posY,texture,textureOver,scale)
+function createButton(Name,id,posX,posY,texture,textureOver)
     local b = {}
     b.name = Name
     b.id = id
     b.posX = posX
     b.posY = posY
-    b.scale = scale
     b.sizeX = texture:getWidth()
     b.sizeY = texture:getHeight()
     b.texture = texture
@@ -25,15 +24,14 @@ function drawButton(button)
     local posX = button.posX
     local posY = button.posY
     local texture = button.texture
-    local scale = button.scale
     local sizeX = button.sizeX
     local sizeY = button.sizeY
     local name = button.name
 
-    love.graphics.draw(texture,posX,posY,0,scale,scale)
+    love.graphics.draw(texture,posX,posY,0,getScale(),getScale())
 
-    local middelButtonX = posX + ((sizeX / 2) * scale)
-    local middelButtonY = posY + ((sizeY / 2) * scale)
+    local middelButtonX = posX + ((sizeX / 2) * getScale())
+    local middelButtonY = posY + ((sizeY / 2) * getScale())
 
     local middelNameX = 48
     local middelNameY = 24
@@ -43,10 +41,10 @@ function drawButton(button)
 
     if getDebugMode() == true then
         love.graphics.setColor(1, 0, 0, 1)
-        love.graphics.rectangle("line", posX, posY, button.sizeX* scale, button.sizeY* scale)
+        love.graphics.rectangle("line", posX, posY, button.sizeX* getScale(), button.sizeY* getScale())
         love.graphics.setColor(0, 0, 1, 1)
-        love.graphics.line(posX+(sizeX*scale) / 2, posY, posX+(sizeX*scale) / 2,posY+sizeY*scale)
-        love.graphics.line(posX,posY+(sizeY*scale) / 2, posX+sizeX*scale, posY+(sizeY*scale)/2)
+        love.graphics.line(posX+(sizeX*getScale()) / 2, posY, posX+(sizeX*getScale()) / 2,posY+sizeY*getScale())
+        love.graphics.line(posX,posY+(sizeY*getScale()) / 2, posX+sizeX*getScale(), posY+(sizeY*getScale())/2)
         love.graphics.setColor(1, 1, 1, 1)
     end
 end
@@ -57,9 +55,8 @@ function getMouseEnter(button)
     local posY = button.posY
     local sizeX = button.sizeX
     local sizeY = button.sizeY
-    local scale = button.scale
 
-    if love.mouse.getX() > posX and love.mouse.getX() < posX + sizeX * scale and love.mouse.getY() > posY and love.mouse.getY() < posY + sizeY * scale then
+    if love.mouse.getX() > posX and love.mouse.getX() < posX + sizeX * getScale() and love.mouse.getY() > posY and love.mouse.getY() < posY + sizeY * getScale() then
         button.texture = button.textureOver
         return true
     else

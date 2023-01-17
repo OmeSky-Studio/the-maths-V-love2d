@@ -3,12 +3,11 @@ require("/textureManager")
 require("/components/buttonManager")
 
 local buttonReturn
-local scale = 0.6
 
 function loadOptionMenu()
   
    --button return menu
-    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),scale)
+    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
 end
 
 function updateOptionMenu()

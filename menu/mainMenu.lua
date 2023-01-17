@@ -10,17 +10,12 @@ local omskstud = love.graphics.newImage("res/textures/OméSky Studio.png")
 local titre = love.graphics.newImage("res/textures/themaths.png")
 
 function loadMainMenu()
-
-    local midelScreenX = love.graphics.getWidth() / 2
-    local midelScreenY = love.graphics.getHeight() / 2
-    local scale = 0.6
-
     local green_Button = getTexture("greenButton")
     local red_Button = getTexture("redButton")
     
-    buttonJouer = createButton("Jouer",0,midelScreenX - (green_Button:getWidth()/2)*scale,midelScreenY - (green_Button:getHeight()/2)*scale,green_Button,red_Button,scale)
-    buttonSettings = createButton("Option",0,midelScreenX - (green_Button:getWidth()/2)*scale,midelScreenY - (green_Button:getHeight()/2)*scale + 100,green_Button,red_Button,scale)
-    buttonExit = createButton("Quitter",0,midelScreenX - (green_Button:getWidth()/2)*scale,midelScreenY - (green_Button:getHeight()/2)*scale + 200,green_Button,red_Button,scale)
+    buttonJouer = createButton("Jouer",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale(),green_Button,red_Button,getScale())
+    buttonSettings = createButton("Option",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 100,green_Button,red_Button,getScale())
+    buttonExit = createButton("Quitter",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 200,green_Button,red_Button,getScale())
 
 end
 

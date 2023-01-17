@@ -23,7 +23,7 @@ function love.load()
 end
 
 function love.update(dt)
-    upadteGame()
+    upadteGame(dt)
     --print(getGameMode())
 end
 

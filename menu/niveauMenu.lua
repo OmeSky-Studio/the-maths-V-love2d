@@ -8,33 +8,30 @@ local niveau = {}
 local buttonReturn
 
 function loadNiveauMenu()
-  local midelScreenX = love.graphics.getWidth() / 2
-  local midelScreenY = love.graphics.getHeight() / 2
-  local scale = 0.6
   local textureButton = getTexture("greenButtonSmall")
   local textureButtonOver = getTexture("redButtonSmall")
 
   local midelButtonX = textureButton:getWidth() / 2
   local midelButtonY = textureButton:getHeight() / 2
   
-  local posX = midelScreenX - ((textureButton:getWidth()*scale +10)*5) + 5
-  local posY = midelScreenY-midelButtonY*scale - 50- midelButtonY
+  local posX = getMidelScreenWidth() - ((textureButton:getWidth()*getScale() +10)*5) + 5
+  local posY = getMidelScreenHeight()-midelButtonY*getScale() - 50- midelButtonY
   
   local id
   
   for id = 1,40 do
     if id == 11 or id == 21 or id == 31 or id == 41 then
-      posX = midelScreenX - ((textureButton:getWidth()*scale +10)*5) + 5
+      posX = getMidelScreenWidth() - ((textureButton:getWidth()*getScale() +10)*5) + 5
 
       posY = posY + midelButtonY +25
     end
     
-    niveau[id] = createButton(id,0,posX,posY,textureButton,textureButtonOver,scale)
-    posX = posX + textureButton:getWidth()*scale +10
+    niveau[id] = createButton(id,0,posX,posY,textureButton,textureButtonOver,getScale())
+    posX = posX + textureButton:getWidth()*getScale() +10
   end
   
    --button return menu
-    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),scale)
+    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
 end
 
 function updateNiveauMenu()

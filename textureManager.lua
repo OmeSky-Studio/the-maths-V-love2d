@@ -1,5 +1,5 @@
 textures = {}
-
+local scale = 0.6
 function initTexture()
     textures["background"] = love.graphics.newImage("/res/textures/background.PNG") --BACKGROUND IMAGE
     textures["greenButton"] = love.graphics.newImage("/res/textures/button/green_button.png") --green_button IMAGE
@@ -25,3 +25,19 @@ function getTexture(texture)
     return textures[texture]
 end
 
+
+function getMidelScreenWidth()
+    return love.graphics.getWidth()/2
+end
+
+function getMidelScreenHeight()
+    return love.graphics.getHeight()/2
+end
+
+function getScale()
+    return scale
+end
+
+function setScale(newScale)
+    scale = newScale
+end

@@ -7,14 +7,9 @@ require("/menu/niveauMenu")
 
 local button3eme, buttonCAP, button2nd, button1er, buttonTerm,buttonReturn
 
---TEXTURE SCALE
-local scale = 0.6
 --VAR TEXTURE
 
 local titre = love.graphics.newImage("res/textures/themaths.png") --IMG TITRE
---VAR MIDEL SCREEN
-local midelScreenX = love.graphics.getWidth() / 2
-local midelScreenY = love.graphics.getHeight() / 2
 
 
 function loadClassMenu()
@@ -24,26 +19,26 @@ function loadClassMenu()
     local midelButtonX = textureButton:getWidth() / 2
     local midelButtonY = textureButton:getHeight() / 2
 
-    local posX = midelScreenX - ((textureButton:getWidth()*scale +10)*2) - midelButtonX*scale
+    local posX = getMidelScreenWidth() - ((textureButton:getWidth()*getScale() +10)*2) - midelButtonX*getScale()
     print(posX)
-    local posY = midelScreenY-midelButtonY*scale +120
+    local posY = getMidelScreenHeight()-midelButtonY*getScale() +120
 
-    button3eme = createButton("3éme",0,posX,posY,textureButton,textureButtonOver,scale)
+    button3eme = createButton("3éme",0,posX,posY,textureButton,textureButtonOver,getScale())
 
-    posX = posX + textureButton:getWidth()*scale +10
-    buttonCAP = createButton("CAP",0,posX,posY,textureButton,textureButtonOver,scale)
+    posX = posX + textureButton:getWidth()*getScale() +10
+    buttonCAP = createButton("CAP",0,posX,posY,textureButton,textureButtonOver,getScale())
 
-    posX = posX + textureButton:getWidth()*scale +10
-    button2nd = createButton("2nd",0,posX,posY,textureButton,textureButtonOver,scale)
+    posX = posX + textureButton:getWidth()*getScale() +10
+    button2nd = createButton("2nd",0,posX,posY,textureButton,textureButtonOver,getScale())
     
-    posX = posX + textureButton:getWidth()*scale +10
-    button1er = createButton("1er",0,posX,posY,textureButton,textureButtonOver,scale)
+    posX = posX + textureButton:getWidth()*getScale() +10
+    button1er = createButton("1er",0,posX,posY,textureButton,textureButtonOver,getScale())
     
-    posX = posX + textureButton:getWidth()*scale +10
-    buttonTerm = createButton("Terminal",0,posX,posY,textureButton,textureButtonOver,scale)
+    posX = posX + textureButton:getWidth()*getScale() +10
+    buttonTerm = createButton("Terminal",0,posX,posY,textureButton,textureButtonOver,getScale())
     
     --button return menu
-    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),scale)
+    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
 end
 
 function updateClassMenu()
