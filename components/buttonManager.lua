@@ -1,8 +1,6 @@
 require("/textureManager")
 require("/debugMode")
 
-
-
 function createButton(Name,id,posX,posY,texture,textureOver)
     local b = {}
     b.name = Name

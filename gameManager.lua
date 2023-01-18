@@ -9,8 +9,6 @@ require("gameMode")
 
 local TimeSleep = 0.15
 
-
-
 function loadGame()
     loadMainMenu() -- CHARGE LE MENU PRINCIPALE
     loadClassMenu() -- CHARGE LE MENU DES CLASSE

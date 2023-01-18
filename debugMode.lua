@@ -8,7 +8,6 @@ function setDebugMode(t) -- REDEFINI LA VARIABLE DEBUG
     debug = t
 end
 
-
 function drawDebugMode()
   if debug == true then
     love.graphics.setColor(255,0,0)

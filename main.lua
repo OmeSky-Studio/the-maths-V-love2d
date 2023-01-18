@@ -1,4 +1,3 @@
-
 --import script/lib
 require("textureManager")
 require("gameManager")
@@ -41,7 +40,6 @@ function love.draw()
     drawGame() -- AFFICHER LE JEU
     drawDebugMode() -- AFFICHE OU NON LE DEBUG MODE
 end
-
 
 function love.keypressed(key)
     --GESTION DES TOUCHES DE DEBUG

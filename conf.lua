@@ -1,4 +1,3 @@
-
 function love.conf(t)
     t.window.width = 800 -- TAILLE PAR DEFAUT DE L'ECRAN
     t.window.height = 600 -- TAILLE PAR DEFAUT DE L'ECRAN

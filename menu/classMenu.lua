@@ -4,13 +4,11 @@ require("/components/buttonManager")
 require("/gameMode")
 require("/menu/niveauMenu")
 
-
 local button3eme, buttonCAP, button2nd, button1er, buttonTerm,buttonReturn
 
 --VAR TEXTURE
 
 local titre = love.graphics.newImage("res/textures/themaths.png") --IMG TITRE
-
 
 function loadClassMenu()
     local textureButton = getTexture("greenButton") --IMG BUTTON

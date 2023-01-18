@@ -1,6 +1,5 @@
 textures = {}
 local scale = 0.6
-
 function initTexture()
     textures["background"] = love.graphics.newImage("/res/textures/background.PNG") --BACKGROUND IMAGE
     textures["greenButton"] = love.graphics.newImage("/res/textures/button/green_button.png") --green_button IMAGE

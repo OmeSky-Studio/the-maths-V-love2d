@@ -1,8 +1,6 @@
-
 require("/textureManager")
 require("/components/buttonManager")
 require("/gameMode")
-
 
 local niveau = {} --VARIABLE DES BOUTON NIVEAU
 local buttonReturn --VARIABLE DU BOUTON RETURN

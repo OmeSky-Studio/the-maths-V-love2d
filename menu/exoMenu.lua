@@ -5,7 +5,6 @@ require("/gameMode")
 --VARIABLE DU BOUTON RETURN
 local buttonReturn
 
-
 function loadExoMenu()
   --button return menu
   buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
