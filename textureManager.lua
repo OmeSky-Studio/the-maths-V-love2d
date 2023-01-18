@@ -21,23 +21,27 @@ function initTexture()
     textures["titreTerm"] = love.graphics.newImage("/res/textures/titre/terminal.png")
 end
 
+-- RETOURNE LA TEXTURE SELECTIONER
 function getTexture(texture)
     return textures[texture]
 end
 
-
+--RETOURNE LE MILIEU DE L'ECRAN EN LONGEUR
 function getMidelScreenWidth()
     return love.graphics.getWidth()/2
 end
 
+--RETOURNE LE MILIEU DE L'ECRAN EN LARGEUR
 function getMidelScreenHeight()
     return love.graphics.getHeight()/2
 end
 
+--RETOURNE LA VARIABLE SCALE
 function getScale()
     return scale
 end
 
+--REDEFINI LA VARIABLE SCALE
 function setScale(newScale)
     scale = newScale
 end

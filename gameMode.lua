@@ -16,23 +16,27 @@ function loadGameMode()
     gameModes.classeTerm = "TermMenu" --Menu Classe 3eme  
 end
 
+--RETOURNE TOUT LES MODES DE JEU
 function getAllGameMode()
     return gameModes
 end
 
+--RETOURNE LE MODE DE JEU ACTUEL
 function getGameMode()
     return gameMode
 end
 
+--REDEFINIR LE MODE DE JEU ACTUEL
 function setGameMode(newGameMode)
     gameMode = newGameMode
 end
 
---EXO NUMBER
+--RETOURNE LE NUMEROS DE L'EXO ACTUEL
 function getExoNumber()
     return exoNumber
 end
 
+--REDEFINIR LE NUMERO DE L'EXO
 function setExoNumber(newExoNumber)
     exoNumber = newExoNumber
 end

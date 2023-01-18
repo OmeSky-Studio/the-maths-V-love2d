@@ -2,10 +2,8 @@ require("/textureManager")
 require("/components/buttonManager")
 require("/gameMode")
 
+--VARIABLE DU BOUTON RETURN
 local buttonReturn
-
-local midelScreenX = love.graphics.getWidth()/2
-local midelScreenY = love.graphics.getHeight()/2
 
 
 function loadExoMenu()
@@ -14,6 +12,7 @@ function loadExoMenu()
 end
 
 function updateExoMenu()
+  --SI ON CLIQUE SUR LE BOUTON RETURN ON DEFINI LA VARIBLE EXO A 0
   if getMouseEnterClick(buttonReturn) == true then
     setExoNumber(0)       
   end

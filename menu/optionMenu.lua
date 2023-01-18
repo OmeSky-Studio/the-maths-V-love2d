@@ -2,7 +2,7 @@
 require("/textureManager")
 require("/components/buttonManager")
 
-local buttonReturn
+local buttonReturn -- VARIABLE DU BOUTON RETURN
 
 function loadOptionMenu()
   
@@ -11,6 +11,7 @@ function loadOptionMenu()
 end
 
 function updateOptionMenu()
+  --SI LA SOURI CLICK SUR LE BOUTON ALOS ON PASSE LE MODE DE JEU EN "MENU PRINCIPALE"
   if getMouseEnterClick(buttonReturn) == true then
       setGameMode(getAllGameMode().mainMenu)
   end
@@ -21,5 +22,5 @@ function drawOptionMenu()
   --clavier
   --love.graphics.draw(love.graphics.newImage("res/textures/icons/num_pad.png"),(love.graphics.getWidth()/2-love.graphics.newImage("res/textures/icons/num_pad.png"):getWidth()/2),(love.graphics.getHeight()/2-love.graphics.newImage("res/textures/icons/num_pad.png"):getHeight()/2)+150)
   
-  drawButton(buttonReturn)
+  drawButton(buttonReturn) -- ON AFFICHE LE BOUTON RETURN
 end
