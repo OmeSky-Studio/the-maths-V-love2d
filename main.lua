@@ -1,8 +1,7 @@
 --import script/lib
 require("textureManager")
 require("gameManager")
-require("debugMode")
-require("/components/console")
+require("debugMode") 
 require("gameMode")
 
 --SET TEXT FONT 
@@ -15,15 +14,17 @@ function love.load()
   --nouvelle souris
   --local cursor = love.mouse.newCursor("res/textures/cursor.png",-0.5,-0.5)
   --love.mouse.setCursor(cursor)
-
+    initDebug()
     loadGameMode() --CHAARGEMENT DES MODEs DE JEU
     initTexture() --CHARGEMENT DE TOUTE LES TEXTURES DU JEU
     loadGame()  --CHARGEMENT DU JEU
 end
 
 function love.update(dt)
-    upadteGame(dt) -- UPDATE DU JEU
-    --print(getGameMode())
+    if getMesureMode() == false then
+        upadteGame(dt) -- UPDATE DU JEU
+        --print(getGameMode())
+    end
 end
 
 function love.draw()
@@ -48,6 +49,13 @@ function love.keypressed(key)
             setDebugMode(false)
         else
             setDebugMode(true)
+        end
+    end
+    if key == "f4" and getDebugMode() == true then
+        if getMesureMode() == true then
+            setMesureMode(false)
+        else
+            setMesureMode(true)
         end
     end
     if key == "escape" then
