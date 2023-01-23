@@ -12,6 +12,9 @@ function initTexture()
     
     textures["greenButtonSmall"] = love.graphics.newImage("/res/textures/button/green_button_small.png") --green_button_small IMAGE
     textures["redButtonSmall"] = love.graphics.newImage("/res/textures/button/red_button_small.png") --red_button_small IMAGE
+    textures["yellowButtonSmall"] = love.graphics.newImage("/res/textures/button/yellow_button_small.png") --yellow_button_small IMAGE
+    textures["greyButtonSmall"] = love.graphics.newImage("/res/textures/button/grey_button_small.png") --grey_button_small IMAGE
+
     
     --TITRE CLASSE MENU
     textures["titre3eme"] = love.graphics.newImage("/res/textures/titre/3eme.png")

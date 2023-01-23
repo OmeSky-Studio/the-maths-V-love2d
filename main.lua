@@ -3,6 +3,7 @@ require("textureManager")
 require("gameManager")
 require("debugMode") 
 require("gameMode")
+require("/components/mouseManager")
 
 --SET TEXT FONT 
 local font = love.graphics.newFont(32, "mono")
@@ -27,6 +28,16 @@ function love.update(dt)
     end
 end
 
+function love.mousepressed(x,y,button)
+  mouseSetPosX(x)
+  mouseSetPosY(y)
+  mouseSetButton(button)
+end
+
+function love.mousereleased()
+  mouseReset()
+end
+
 function love.draw()
     --AFFICHE L'ARRIER PLAN PAR DEFAUT
     love.graphics.draw(
@@ -41,6 +52,7 @@ function love.draw()
     drawGame() -- AFFICHER LE JEU
     drawDebugMode() -- AFFICHE OU NON LE DEBUG MODE
 end
+
 
 function love.keypressed(key)
     --GESTION DES TOUCHES DE DEBUG
@@ -60,5 +72,6 @@ function love.keypressed(key)
     end
     if key == "escape" then
         setGameMode(getAllGameMode().mainMenu)
+        setExoNumber(0)
     end
 end

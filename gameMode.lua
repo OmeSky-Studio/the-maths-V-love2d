@@ -5,6 +5,8 @@ local gameModes = {}
 function loadGameMode()
     gameModes.mainMenu = "MainMenu" --Menu principale du jeu
     gameModes.optionMenu = "settingsMenu" --Menu paramétre du jeu
+    gameModes.controlMenu = "controlMenu" --Menu paramétre du jeu
+
     gameModes.classeMenu = "classeMenu" --Menu pour sélectionner sont niveau de classe
     gameModes.exitGame = "leave" --Quitte le jeu
     

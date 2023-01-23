@@ -22,7 +22,7 @@ function drawExoMenu()
       DRAW PROBLEME
   ]]
   local font = love.graphics.getFont()
-  local msg = "Donner la solution de l'équation x-3=10"
+  local msg = "Donner la solution de l'équation x-"..getExoNumber().."=10"
   local posX = getMidelScreenWidth() - (font:getWidth(msg)/2)
   local posY = 100
 

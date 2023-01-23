@@ -1,5 +1,7 @@
 require("/textureManager")
 require("/debugMode")
+require("/components/mouseManager")
+require("/components/mouseManager")
 
 function createButton(Name,id,posX,posY,texture,textureOver)
     local b = {}
@@ -64,9 +66,10 @@ function getMouseEnter(button)
 end
 
 function getMouseEnterClick(button)
-    
-    if getMouseEnter(button) and love.mouse.isDown(1) then
-        return true
+    if getMouseEnter(button) and mouseGetButton() == 1 then
+      mouseReset()
+      return true
+    else
     end
     return false
 end

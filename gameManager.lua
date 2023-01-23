@@ -4,10 +4,10 @@ require("/menu/classMenu")
 require("/menu/niveauMenu")
 require("/menu/optionMenu")
 require("/menu/exoMenu")
+require("/menu/controlMenu")
+
 
 require("gameMode")
-
-local TimeSleep = 0.15
 
 function loadGame()
     loadMainMenu() -- CHARGE LE MENU PRINCIPALE
@@ -15,6 +15,7 @@ function loadGame()
     loadNiveauMenu() -- CHARGE LE MENU DES NIVEAU
     loadOptionMenu() -- CHARGE LE MENU OPTION
     loadExoMenu() -- CHARGE LE MENU DES EXO
+    loadControlMenu()
 end
 
 --[[
@@ -34,7 +35,7 @@ end
             ON FERME LE JEU
 ]]
 
-function upadteGame(dt)
+function upadteGame()
 
     if getGameMode() == getAllGameMode().mainMenu then
         upadteMainMenu() -- UPDATE MENU PRINCIPALE
@@ -42,6 +43,8 @@ function upadteGame(dt)
         updateClassMenu() -- UPDATE MENU  CLASSE
     elseif getGameMode() == getAllGameMode().optionMenu then
         updateOptionMenu() -- UPDATE MENU OPTION
+    elseif getGameMode() == getAllGameMode().controlMenu then
+        updateControlMenu() -- UPDATE MENU CONTROL
     elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
         if getExoNumber() == 0 then -- REGARDE SI LE NUMERO DE L'EXO ET EGUALE A 0
             updateNiveauMenu() -- UPDATE DU MENU NIVEAU
@@ -51,7 +54,6 @@ function upadteGame(dt)
     elseif getGameMode() == getAllGameMode().exitGame then
         os.exit() -- ON QUITTE LE JEU ET ON LE FERME
     end
-    love.timer.sleep(TimeSleep)
 end
 
 --[[
@@ -73,8 +75,10 @@ function drawGame()
       drawMainMenu() -- AFFICHAGE DU MENU PRINCIPALE
     elseif getGameMode() == getAllGameMode().classeMenu then
       drawClassMenu() -- AFFICHAGE DU MENU DES CLASSE
-     elseif getGameMode() == getAllGameMode().optionMenu then
+    elseif getGameMode() == getAllGameMode().optionMenu then
       drawOptionMenu() -- AFFICHAGE DU MENU OPTION
+    elseif getGameMode() == getAllGameMode().controlMenu then
+      drawControlMenu() -- AFFICHAGE DU MENU CONTROL
     elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
         if getExoNumber() == 0 then
             drawNiveauMenu() -- AFFICHAGE DU MENU NIVEAU

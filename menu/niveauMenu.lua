@@ -16,8 +16,7 @@ function loadNiveauMenu()
   
   --POSITION INITIALE DU PREMIER BOUTON
   local posX = getMidelScreenWidth() - ((textureButton:getWidth()*getScale() +10)*5) + 5
-  local posY = getMidelScreenHeight()-midelButtonY*getScale() - 50- midelButtonY
-  
+  local posY = getMidelScreenHeight()-midelButtonY*getScale() - 50 - midelButtonY
   --VARIABLE ID
   local id
   
@@ -31,13 +30,20 @@ function loadNiveauMenu()
       PUIS ON AJOUTE A LA POSITION X, LA POSITION X + LA TAILLE DES BOUTON * LE SCALE + 10
   ]]
 
-  for id = 1,40 do
-    if id == 11 or id == 21 or id == 31 or id == 41 then
+  for id = 1,60 do
+    if id == 11 or id == 21 or id == 31 or id == 41 or id == 51 or id == 61 then
       posX = getMidelScreenWidth() - ((textureButton:getWidth()*getScale() +10)*5) + 5
 
       posY = posY + midelButtonY +25
     end
     
+    if id <=20 then
+      textureButton = getTexture("greenButtonSmall")
+    elseif id > 20 and id <= 40 then
+      textureButton = getTexture("yellowButtonSmall")
+    elseif id > 40 and id <= 60 then
+      textureButton = getTexture("greyButtonSmall")
+    end
     niveau[id] = createButton(id,0,posX,posY,textureButton,textureButtonOver,getScale())
     posX = posX + textureButton:getWidth()*getScale() +10
   end

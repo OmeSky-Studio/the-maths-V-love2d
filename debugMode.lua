@@ -1,3 +1,7 @@
+require("/components/mouseManager")
+require("/gameMode")
+
+
 local debug = false
 
 local regle = {}
@@ -37,10 +41,10 @@ end
 
 function drawDebugMode()
   if debug == true then
-    love.graphics.setColor(255,0,0)
+    love.graphics.setColor(1,0,1)
     love.graphics.line(love.graphics.getWidth()/2, 0, love.graphics.getWidth()/2, love.graphics.getHeight())
     love.graphics.line(0, love.graphics.getHeight()/2, love.graphics.getWidth(),love.graphics.getHeight()/2)
-    love.graphics.setColor(255,255,255)
+    love.graphics.setColor(1,1,1)
 
     printMenu(calculePosX,calculePosY)
     if regle.isActive == true then
@@ -83,16 +87,24 @@ function printMenu(calculePosX,calculePosY)
 
   printTextMenu("DEBUG MODE", 50)
   --Display
-  printTextMenu("Display", 100)
-  printTextMenu("Size: " ..love.graphics.getWidth().."x"..love.graphics.getHeight(),150)
+  printTextMenu("Display: " ..love.graphics.getWidth().."x"..love.graphics.getHeight(), 100)
 
   --MOUSE POS
-  printTextMenu("Mouse PosX | PosY",200)
+  printTextMenu("Mouse PosX | PosY:",200)
   printTextMenu(love.mouse.getX() .. " | " .. love.mouse.getY(),250)
   
+  --MOUSE INPUT
+  printTextMenu("Mouse Button: "..mouseGetButton(),300)
+  
   --MESURE
-  printTextMenu("Mesure",300)
-  printTextMenu(calculePosX .. " " ..calculePosY, 350)
+  printTextMenu("Mesure:"..calculePosX .. " " ..calculePosY,350)
+  
+  --MESURE
+  printTextMenu("GameMode: "..getGameMode(),450)
+  printTextMenu("ExoNumber: "..getExoNumber(), 500)  
+
+  
+  
 end
 
 function printTextMenu(text, posY)
