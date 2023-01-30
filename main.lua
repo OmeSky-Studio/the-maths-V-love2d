@@ -70,6 +70,10 @@ function love.keypressed(key)
             setMesureMode(true)
         end
     end
+    if key == "f5" and getDebugMode() == true then
+        setGameMode(getAllGameMode().classe3eme)
+        setExoNumber(20)
+    end
     if key == "escape" then
         setGameMode(getAllGameMode().mainMenu)
         setExoNumber(0)

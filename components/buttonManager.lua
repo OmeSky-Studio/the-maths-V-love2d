@@ -3,6 +3,9 @@ require("/debugMode")
 require("/components/mouseManager")
 require("/components/mouseManager")
 
+
+
+
 function createButton(Name,id,posX,posY,texture,textureOver)
     local b = {}
     b.name = Name
@@ -18,45 +21,35 @@ function createButton(Name,id,posX,posY,texture,textureOver)
 end
 
 function drawButton(button)
-    
     local font = love.graphics.getFont()
-    
-    local posX = button.posX
-    local posY = button.posY
-    local texture = button.texture
-    local sizeX = button.sizeX
-    local sizeY = button.sizeY
-    local name = button.name
+    love.graphics.draw(button.texture,button.posX,button.posY,0,getScale(),getScale())
 
-    love.graphics.draw(texture,posX,posY,0,getScale(),getScale())
-
-    local middelButtonX = posX + ((sizeX / 2) * getScale())
-    local middelButtonY = posY + ((sizeY / 2) * getScale())
+    local middelButtonX = button.posX + ((button.sizeX / 2) * getScale())
+    local middelButtonY = button.posY + ((button.sizeY / 2) * getScale())
 
     local middelNameX = 48
     local middelNameY = 24
   
 
-    love.graphics.print(name,middelButtonX - (font:getWidth(name)/2),middelButtonY - (font:getHeight(name)/2))
+    love.graphics.print(button.name,middelButtonX - (font:getWidth(button.name)/2),middelButtonY - (font:getHeight(button.name)/2))
 
     if getDebugMode() == true then
         love.graphics.setColor(1, 0, 0, 1)
-        love.graphics.rectangle("line", posX, posY, button.sizeX* getScale(), button.sizeY* getScale())
+        love.graphics.rectangle("line", button.posX, button.posY, button.sizeX* getScale(), button.sizeY* getScale())
         love.graphics.setColor(0, 0, 1, 1)
-        love.graphics.line(posX+(sizeX*getScale()) / 2, posY, posX+(sizeX*getScale()) / 2,posY+sizeY*getScale())
-        love.graphics.line(posX,posY+(sizeY*getScale()) / 2, posX+sizeX*getScale(), posY+(sizeY*getScale())/2)
+        love.graphics.line(button.posX+(button.sizeX*getScale()) / 2, button.posY, button.posX+(button.sizeX*getScale()) / 2,button.posY+button.sizeY*getScale())
+        love.graphics.line(button.posX,button.posY+(button.sizeY*getScale()) / 2, button.posX+button.sizeX*getScale(), button.posY+(button.sizeY*getScale())/2)
         love.graphics.setColor(1, 1, 1, 1)
     end
 end
 
-function getMouseEnter(button)
-    
-    local posX = button.posX
-    local posY = button.posY
-    local sizeX = button.sizeX
-    local sizeY = button.sizeY
+function setText(button,txt)
+    button.name = txt
+end
 
-    if love.mouse.getX() > posX and love.mouse.getX() < posX + sizeX * getScale() and love.mouse.getY() > posY and love.mouse.getY() < posY + sizeY * getScale() then
+function getMouseEnter(button)
+
+    if love.mouse.getX() > button.posX and love.mouse.getX() < button.posX + button.sizeX * getScale() and love.mouse.getY() > button.posY and love.mouse.getY() < button.posY + button.sizeY * getScale() then
         button.texture = button.textureOver
         return true
     else

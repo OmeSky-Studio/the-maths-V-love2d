@@ -1,5 +1,6 @@
 textures = {}
 local scale = 0.6
+local path = "/res/textures/"
 function initTexture()
     textures["background"] = love.graphics.newImage("/res/textures/background.PNG") --BACKGROUND IMAGE
     textures["greenButton"] = love.graphics.newImage("/res/textures/button/green_button.png") --green_button IMAGE
@@ -22,6 +23,9 @@ function initTexture()
     textures["titre2nd"] = love.graphics.newImage("/res/textures/titre/2nd.png")
     textures["titre1er"] = love.graphics.newImage("/res/textures/titre/1er.png")
     textures["titreTerm"] = love.graphics.newImage("/res/textures/titre/terminal.png")
+
+    --SCREEN
+    textures["screen"] = love.graphics.newImage("/res/textures/UI/screen.png")
 end
 
 -- RETOURNE LA TEXTURE SELECTIONER
