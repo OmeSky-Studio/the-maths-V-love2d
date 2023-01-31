@@ -5,9 +5,10 @@ require("/gameMode")
 --VARIABLE DU BOUTON RETURN
 local buttonReturn
 local r1,r2,r3
-local msg = "Problématique"
-local reponseJuste = "R 1"
+local msg = "Donner la solution de l'équation 2x+2=0"
+local reponseJuste = "-1"
 local selected = ""
+local selectedButton
 
 function loadExoMenu()
   --button return menu
@@ -15,7 +16,7 @@ function loadExoMenu()
   local redButton = getTexture("redButton")
   buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
   r1 = createButton(
-    "R 1",
+    "0",
     0,
     getMidelScreenWidth()-(greenButton:getWidth()/2*getScale())*3-25,
     getMidelScreenHeight(),
@@ -25,7 +26,7 @@ function loadExoMenu()
   )
 
   r2 = createButton(
-    "R 2",
+    "4",
     0,
     getMidelScreenWidth()-greenButton:getWidth()/2*getScale(),
     getMidelScreenHeight(),
@@ -35,7 +36,7 @@ function loadExoMenu()
   )
 
   r3 = createButton(
-    "R 3",
+    "-1",
     0,
     getMidelScreenWidth()+(greenButton:getWidth()/2*getScale())+25,
     getMidelScreenHeight(),
@@ -43,6 +44,8 @@ function loadExoMenu()
     redButton,
     getScale
   )
+
+  selectedButton = createButton("",0,getMidelScreenWidth()-getTexture("greyButton"):getWidth()/2*getScale(),getMidelScreenHeight()-getTexture("greyButton"):getHeight()/2*3,getTexture("greyButton"),getTexture("greyButton"),getScale)
 end
 
 function updateExoMenu()
@@ -61,6 +64,7 @@ function updateExoMenu()
   end
 
   if getMouseEnterClick(buttonReturn) == true then
+    selected = ""
     setExoNumber(0)       
   end
 end
@@ -72,21 +76,17 @@ function drawExoMenu()
       DRAW PROBLEME
   ]]
   font = love.graphics.getFont()  
-  posX = getMidelScreenWidth() -getTexture("screen"):getWidth()/2
+  posX = getMidelScreenWidth() - getTexture("screen"):getWidth()/2
   posY = 100
 
   love.graphics.draw(getTexture("screen"), posX, posY,0,1,1)
   love.graphics.setColor(1, 1, 1, 1)
-  love.graphics.print(msg, posX + font:getWidth(msg), posY + getTexture("screen"):getHeight()/2 - (font:getHeight(msg)/2))
+  love.graphics.print(msg, posX +25, posY + getTexture("screen"):getHeight()/2 - (font:getHeight(msg)/2))
   love.graphics.setColor(1, 1, 1, 1)
 
   if selected ~= "" then
-    love.graphics.draw(
-      getTexture("greyButton"), 
-      getMidelScreenWidth()-getTexture("greyButton"):getWidth()/2*getScale(),
-      getMidelScreenHeight()-getTexture("greyButton"):getHeight()/2*3,
-      0,
-      getScale(),getScale())
+    --love.graphics.print(selected,getMidelScreenWidth()-getTexture("greyButton"):getWidth()/2*getScale() - (font:getWidth(button.name)/2),getMidelScreenHeight()-getTexture("greyButton"):getHeight()/2*3 - (font:getHeight(button.name)/2))
+    drawButton(selectedButton)
   end
   
 
@@ -112,5 +112,5 @@ function Updatereponse()
     r2.texture = r2.textureOver
     r3.texture = r3.initTexture
   end
-  
+  selectedButton.name = selected
 end

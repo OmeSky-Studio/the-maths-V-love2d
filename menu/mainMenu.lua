@@ -6,7 +6,6 @@ require("/menu/classMenu")
 --VARIABLE DES BOUTON JOUER/SETTINGS/EXIT
 local buttonJouer, buttonSettings, buttonExit
 --VARIABLE DES TEXTURE TITRE ET OMSK STUDIO
-local omskstud = love.graphics.newImage("res/textures/OméSky Studio.png")
 local titre = love.graphics.newImage("res/textures/themaths.png")
 
 function loadMainMenu()
@@ -16,7 +15,7 @@ function loadMainMenu()
     
     --CREATION DES BOUTONS JOUER/SETTINGS/EXIT
     buttonJouer = createButton("Jouer",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale(),green_Button,red_Button,getScale())
-    buttonSettings = createButton("Option",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 100,green_Button,red_Button,getScale())
+    buttonSettings = createButton("Options",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 100,green_Button,red_Button,getScale())
     buttonExit = createButton("Quitter",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 200,green_Button,red_Button,getScale())
 
 end
@@ -48,5 +47,4 @@ function drawMainMenu()
     drawButton(buttonExit) -- ON AFFICHE LE BOUTON EXIT
     love.graphics.draw(titre,love.graphics.getWidth()/2- titre:getWidth()/2, 100) -- ON AFFICHE LE TITRE
     --ON AFFICHE LE LOGO OMESKY STUDIO
-    love.graphics.draw(omskstud,love.graphics.getWidth()- omskstud:getWidth(), love.graphics.getHeight()-omskstud:getHeight()-5)
 end

@@ -9,6 +9,7 @@ require("/components/mouseManager")
 local font = love.graphics.newFont(32, "mono")
 font:setFilter("nearest")
 love.graphics.setFont(font)
+local omskstud = love.graphics.newImage("res/textures/OméSky Studio.png")
 --END SET TEXT FONT
 
 function love.load()
@@ -48,6 +49,7 @@ function love.draw()
         love.graphics:getWidth() / getTexture("background"):getWidth(), -- SCALE X
         love.graphics:getHeight() / getTexture("background"):getHeight() -- SCALE Y
     )
+    love.graphics.draw(omskstud,love.graphics.getWidth()- omskstud:getWidth(), love.graphics.getHeight()-omskstud:getHeight()-5)
 
     drawGame() -- AFFICHER LE JEU
     drawDebugMode() -- AFFICHE OU NON LE DEBUG MODE

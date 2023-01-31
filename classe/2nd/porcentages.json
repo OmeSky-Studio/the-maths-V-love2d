@@ -1,0 +1,39 @@
+{
+    "nombre_exo":"9",
+
+    "exo1": {
+        "enoncer":"1.Déterminer la valeur manquante du tableau de proportionnalité ci-dessous.",
+        "table": [[10],[15],[20],[0]],
+        "propositions": [20,30,45],
+        "reponce": 30 
+    },
+    "exo2": {
+        "enoncer":"1.Déterminer la valeur manquante du tableau de proportionnalité ci-dessous.",
+        "table": [[7],[10],[21],[0]],
+        "propositions": [14,20,30],
+        "reponce": 30 
+    },
+    "exo3": {
+        "enoncer":"1.Déterminer la valeur manquante du tableau de proportionnalité ci-dessous.",
+        "table": [[5],[3],[0],[12]],
+        "propositions": [20,21,24],
+        "reponce": 20 
+    },
+    "exo4": {
+        "enoncer":"1.Déterminer la valeur manquante du tableau de proportionnalité ci-dessous.",
+        "table": [[0],[0.1],[500],[5]],
+        "propositions": [10,100,1000],
+        "reponce": 10
+    },
+    "exo5": {
+        "enoncer":"1.Déterminer la valeur manquante du tableau de proportionnalité ci-dessous.",
+        "table": [[0],[50],[20],[0]],
+        "propositions": [10,100,1000],
+        "reponce": 1000
+    },
+    "exo6": {
+        "enoncer":"Ecrire sous forme décimale 75/100.",
+        "propositions": [7500,7.5,0.75],
+        "reponce": 0.75
+    }
+}
