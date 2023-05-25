@@ -5,10 +5,10 @@ local buttonReturn,buttonControl
 
 function loadOptionMenu()
   
-    buttonControl = createButton("Controle",0,getMidelScreenWidth()-getTexture("greenButton"):getWidth()/2*getScale(),getMidelScreenHeight()-getTexture("greenButton"):getHeight()/2*getScale(),getTexture("greenButton"),getTexture("redButton"),getScale())
+    buttonControl = createButton("Controle",0,getMidelScreenWidth()-getTexture("greenButton"):getWidth()/2*getScale(),getMidelScreenHeight()-getTexture("yellowButton"):getHeight()/2*getScale(),getTexture("greenButton"),getTexture("redButton"),36)
   
    --button return menu
-    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),getScale())
+    buttonReturn = createButton("",0,25,25,getTexture("greenButtonReturn"),getTexture("redButtonReturn"),36)
 end
 
 function updateOptionMenu()

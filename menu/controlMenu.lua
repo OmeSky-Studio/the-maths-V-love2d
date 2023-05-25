@@ -12,7 +12,7 @@ end
 function updateControlMenu()
   --REGADE SI ON CLIQUE SUR LE BOUTON RETURN SI OUI ON DEFINI LE GAMEMODE SUR "CLASSE MENU"
   if getMouseEnterClick(buttonReturn) == true then
-    setGameMode(getAllGameMode().classeMenu)        
+    setGameMode(getAllGameMode().optionMenu)        
   end
 end
 

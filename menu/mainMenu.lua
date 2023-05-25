@@ -7,16 +7,41 @@ require("/menu/classMenu")
 local buttonJouer, buttonSettings, buttonExit
 --VARIABLE DES TEXTURE TITRE ET OMSK STUDIO
 local titre = love.graphics.newImage("res/textures/themaths.png")
-
+local texteSize = 36
 function loadMainMenu()
     --VARIABLE DES TEXTURE DES BOUTON VERT ET ROUGE
-    local green_Button = getTexture("greenButton")
+    local green_Button = getTexture("yellowButton")
     local red_Button = getTexture("redButton")
     
     --CREATION DES BOUTONS JOUER/SETTINGS/EXIT
-    buttonJouer = createButton("Jouer",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale(),green_Button,red_Button,getScale())
-    buttonSettings = createButton("Options",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 100,green_Button,red_Button,getScale())
-    buttonExit = createButton("Quitter",0,getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 200,green_Button,red_Button,getScale())
+    buttonJouer = createButton(
+      "Jouer",
+      0,
+      getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),
+      getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale(),
+      green_Button,
+      red_Button,
+      texteSize
+    )
+    
+    buttonSettings = createButton(
+      "Options",
+      0,
+      getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),
+      getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 100,
+      green_Button,red_Button,
+      texteSize
+    )
+    
+    buttonExit = createButton(
+      "Quitter",
+      0,
+      getMidelScreenWidth() - (green_Button:getWidth()/2)*getScale(),
+      getMidelScreenHeight() - (green_Button:getHeight()/2)*getScale() + 200,
+      green_Button,
+      red_Button,
+      texteSize
+    )
 
 end
 

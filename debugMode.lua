@@ -3,6 +3,8 @@ require("/gameMode")
 
 
 local debug = false
+local col = false
+local debugMenu = false
 
 local regle = {}
 
@@ -12,7 +14,7 @@ local font
 local posX = love.graphics.getWidth()-sizeX
 local posY = 0
 local calculePosX = 0
-  local calculePosY = 0
+local calculePosY = 0
 
 function initDebug()
   regle.posX = 0
@@ -39,14 +41,37 @@ function setMesureMode(t) -- REDEFINI LA VARIABLE REGLE.ISACTIVE
   regle.isActive = t
 end
 
+function getCol() -- RETOURNE LA VARIABLE COL
+  return col
+end
+
+function setCol(t) -- REDEFINI LA VARIABLE COL
+  col = t
+end
+function getDebugMenu() -- RETOURNE LA VARIABLE debugMenu
+  return debugMenu
+end
+
+function setDebugMenu(t) -- REDEFINI LA VARIABLE debugMenu
+  debugMenu = t
+end
+
+
 function drawDebugMode()
   if debug == true then
-    love.graphics.setColor(1,0,1)
-    love.graphics.line(love.graphics.getWidth()/2, 0, love.graphics.getWidth()/2, love.graphics.getHeight())
-    love.graphics.line(0, love.graphics.getHeight()/2, love.graphics.getWidth(),love.graphics.getHeight()/2)
-    love.graphics.setColor(1,1,1)
+    if col == true then
+      love.graphics.setColor(1,0,1)
+      love.graphics.line(love.graphics.getWidth()/2, 0, love.graphics.getWidth()/2, love.graphics.getHeight())
+      love.graphics.line(0, love.graphics.getHeight()/2, love.graphics.getWidth(),love.graphics.getHeight()/2)
+      love.graphics.setColor(1,1,1)
+    end
 
-    printMenu(calculePosX,calculePosY)
+    if debugMenu == true then
+      printMenu(calculePosX,calculePosY)
+    else
+      printTextMenu("DEBUG MODE", 50)
+    end
+    
     if regle.isActive == true then
       funRegle()
     end
@@ -100,8 +125,9 @@ function printMenu(calculePosX,calculePosY)
   printTextMenu("Mesure:"..calculePosX .. " " ..calculePosY,350)
   
   --MESURE
-  printTextMenu("GameMode: "..getGameMode(),450)
-  printTextMenu("ExoNumber: "..getExoNumber(), 500)  
+  printTextMenu("GameMode: ",450)
+  printTextMenu(getGameMode(),500)
+  printTextMenu("ExoNumber: "..getExoNumber(), 550)  
 
   
   

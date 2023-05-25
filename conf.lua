@@ -4,5 +4,5 @@ function love.conf(t)
     t.window.title = "The Maths" -- NOM DU JEU
     t.window.fullscreen = true -- FENETRE DE JEU EN PLEIN ECRAN
     t.window.fullscreentype = "desktop" 
-    t.console = true -- CREATION DE LA FENETRE CONSOLE
+    t.console = false -- CREATION DE LA FENETRE CONSOLE
 end

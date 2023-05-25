@@ -5,9 +5,12 @@ require("/menu/niveauMenu")
 require("/menu/optionMenu")
 require("/menu/exoMenu")
 require("/menu/controlMenu")
-
+require("/menu/classe/seconde")
+require("/components/tableauManager")
 
 require("gameMode")
+
+local tab
 
 function loadGame()
     loadMainMenu() -- CHARGE LE MENU PRINCIPALE
@@ -16,6 +19,8 @@ function loadGame()
     loadOptionMenu() -- CHARGE LE MENU OPTION
     loadExoMenu() -- CHARGE LE MENU DES EXO
     loadControlMenu()
+    --CLASSE MENU
+    secondeLoad()
 end
 
 --[[
@@ -36,7 +41,7 @@ end
 ]]
 
 function upadteGame()
-
+    
     if getGameMode() == getAllGameMode().mainMenu then
         upadteMainMenu() -- UPDATE MENU PRINCIPALE
     elseif getGameMode() == getAllGameMode().classeMenu then
@@ -45,17 +50,18 @@ function upadteGame()
         updateOptionMenu() -- UPDATE MENU OPTION
     elseif getGameMode() == getAllGameMode().controlMenu then
         updateControlMenu() -- UPDATE MENU CONTROL
-    elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
-        if getExoNumber() == 0 then -- REGARDE SI LE NUMERO DE L'EXO ET EGUALE A 0
-            updateNiveauMenu() -- UPDATE DU MENU NIVEAU
-        elseif getExoNumber() > 0 then -- REGARDE SI LE NUMERO DE L'EXO ET SUPERIEUR A 0
-            updateExoMenu() -- UPDATE DU MENU EXO
-        end
+    elseif getGameMode() == getAllGameMode().classe2nd then
+        updateSeconde()
     elseif getGameMode() == getAllGameMode().exitGame then
         os.exit() -- ON QUITTE LE JEU ET ON LE FERME
     end
 end
-
+--[[
+    getGameMode() == getAllGameMode().classeCap 
+    getGameMode() == getAllGameMode().classe2nd 
+    getGameMode() == getAllGameMode().classe1er 
+    getGameMode() == getAllGameMode().classeTerm
+]]
 --[[
     ON REGARDE: 
         SI LE MODE DE JEU ACTUEL ET EGUALE AU MAIN MENU ALORS
@@ -79,12 +85,61 @@ function drawGame()
       drawOptionMenu() -- AFFICHAGE DU MENU OPTION
     elseif getGameMode() == getAllGameMode().controlMenu then
       drawControlMenu() -- AFFICHAGE DU MENU CONTROL
-    elseif getGameMode() == getAllGameMode().classe3eme or getGameMode() == getAllGameMode().classeCap or getGameMode() == getAllGameMode().classe2nd or getGameMode() == getAllGameMode().classe1er or getGameMode() == getAllGameMode().classeTerm then
-        if getExoNumber() == 0 then
-            drawNiveauMenu() -- AFFICHAGE DU MENU NIVEAU
-        elseif getExoNumber() > 0 then
-            drawExoMenu() -- AFFICHAGE DU MENU EXO
-        end
+    elseif getGameMode() == getAllGameMode().classe2nd then
+      drawSeconde() 
     end
-    --love.timer.sleep(TimeSleep/2)
+end
+
+function updateSeconde()
+  
+  if chapitre == chapitres_seconde[1] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[2] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[3] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[4] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[5] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[6] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[7] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[8] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[9] then
+    updateExoMenu()
+  elseif chapitre == chapitres_seconde[10] then
+    updateExoMenu()
+  else
+    secondeUpdate()
+  end
+end
+
+function drawSeconde()
+
+  if chapitre == chapitres_seconde[1] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[2] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[3] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[4] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[5] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[6] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[7] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[8] then
+    drawExoMenu()
+  elseif chapitre == chapitres_seconde[9] then
+    drawExoMenu()
+    elseif chapitre == chapitres_seconde[10] then
+    drawExoMenu()
+  else
+    secondeDraw()
+  end
 end
